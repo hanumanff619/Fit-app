@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trénink dvojice (CZ) – PWA</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="assets/icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="stylesheet" href="styles/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Trénink dvojice</h1>
+    <nav>
+      <button data-nav="home" class="active">Domů</button>
+      <button data-nav="workout">Trénink</button>
+      <button data-nav="exercises">Cviky</button>
+      <button data-nav="plans">Plány</button>
+      <button data-nav="stats">Statistiky</button>
+      <button data-nav="settings">Nastavení</button>
+    </nav>
+  </header>
+
+  <main id="view"></main>
+
+  <footer class="bottombar">
+    <small>PWA • Offline • Export/Import • CZ</small>
+  </footer>
+
+  <script defer src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+      });
+    }
+  </script>
+</body>
+</html>
